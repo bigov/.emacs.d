@@ -13,17 +13,22 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(custom-enabled-themes (quote (whiteboard)))
+ '(custom-enabled-themes (quote (leuven)))
  '(font-use-system-font t)
+ '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (undo-tree ergoemacs-mode))))
+ '(package-selected-packages
+   (quote
+    (tabbar-ruler nlinum nlinum-hl undo-tree ergoemacs-mode)))
+ '(standard-indent 2)
+ '(tab-always-indent nil))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(linum ((t (:inherit (shadow default))))))
 
 (setq show-paren-style 'mixed) ; режим отображения парных скобок
 (show-paren-mode 1)            ; включить
@@ -50,4 +55,7 @@
 ;;
 (global-unset-key (kbd "<f2>"))
 (global-set-key (kbd "<f2>") 'save-buffer)
+
+(global-linum-mode 1)
+(setq linum-format "%3d")
 
