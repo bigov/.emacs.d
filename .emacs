@@ -13,7 +13,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
- '(custom-enabled-themes (quote (leuven)))
+ '(custom-enabled-themes (quote (whiteboard)))
  '(font-use-system-font t)
  '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
@@ -21,7 +21,7 @@
    (quote
     (tabbar-ruler nlinum nlinum-hl undo-tree ergoemacs-mode)))
  '(standard-indent 2)
- '(tab-always-indent nil))
+ '(tab-always-indent (quote complete)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -29,6 +29,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(linum ((t (:inherit (shadow default))))))
+
+;(setq initial-frame-alist 
+;	`((width . 120) (height . 50) (left . 300) (top . 0)))
+
+(global-linum-mode 1)       ; показывать слева номера строк
+(setq linum-format "%3d ")  ; формат поля - с пробелом в конце
+(column-number-mode 1)      ; показывать в статусе номер колонки
 
 (setq show-paren-style 'mixed) ; режим отображения парных скобок
 (show-paren-mode 1)            ; включить
@@ -55,7 +62,7 @@
 ;;
 (global-unset-key (kbd "<f2>"))
 (global-set-key (kbd "<f2>") 'save-buffer)
+(global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
-(global-linum-mode 1)
-(setq linum-format "%3d")
+
 
