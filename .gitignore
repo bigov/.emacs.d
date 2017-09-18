@@ -1,6 +1,3 @@
-auto-save-list
-elpa
-ergoemacs-extras
-recentf
-elpa-*
+*.swp
+*.~
 
