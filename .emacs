@@ -14,7 +14,7 @@
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(column-number-mode t)
- '(custom-enabled-themes (quote (whiteboard)))
+ '(custom-enabled-themes (quote (wombat)))
  '(indent-tabs-mode t)
  '(inhibit-startup-screen t)
  '(package-selected-packages
@@ -35,46 +35,89 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; System type fo multisystem config
-(defun system-is-linux()
-    (string-equal system-type "gnu/linux"))
-(defun system-is-windows()
-    (string-equal system-type "windows-nt"))
+(defun system-is-linux()   (string-equal system-type "gnu/linux"))
+(defun system-is-windows() (string-equal system-type "windows-nt"))
+; path-variable
+(when (system-is-linux)    (setq unix-init-path "~/.emacs.add"))
+(when (system-is-windows)  (setq win-init-path "C:/.emacs.d"))
 
-;; MS Windows path-variable
-(when (system-is-windows)
-  (setq win-init-path "C:/.emacs.d")
-)
+;; автозагрузка путей плагинов
+(if (system-is-windows) (add-to-list 'load-path win-init-path))
+(if (system-is-linux) (add-to-list 'load-path unix-init-path))
+
+(setq frame-title-format "GNU Emacs: %b") ; current filename in the title bar
 
 (require 'dired)
-(setq dired-recursive-deletes 'top) ;; чтобы можно было непустые директории удалять
+(setq dired-recursive-deletes 'top) ; разрешить удалять непустые директории
 
-;(setq initial-frame-alist 
-;	`((width . 120) (height . 50) (left . 300) (top . 0)))
-
-;; Start window size
-;(when (window-system)
-;  (set-frame-size (selected-frame) 120 50)
-;)
-
-(global-linum-mode 1)       ; показывать слева номера строк
-(setq linum-format "%3d ")  ; формат поля - с пробелом в конце
-(column-number-mode 1)      ; показывать в статусе номер колонки
+(require 'linum)
+(line-number-mode   t)
+(global-linum-mode  t)         ; показывать слева номера строк
+(setq linum-format "%3d ")     ; формат поля - с пробелом в конце
+(column-number-mode t)         ; показывать в статусе номер колонки
+(fringe-mode '(0 . 0))         ; ширина боковых границ в пикселях
+(setq-default indicate-empty-lines t)
+(setq-default indicate-buffer-boundaries 'left)
+(setq display-time-24hr-format t) ; Display file size/time in mode-line
+(display-time-mode             t)
+(size-indication-mode          t)
 
 (setq show-paren-style 'mixed) ; режим отображения парных скобок
 (show-paren-mode 1)            ; включить
 
+; Графические элементы окна
 (menu-bar-mode 1)              ; строку меню отображать
 (tool-bar-mode -1)             ; панель инструментов скрыть
-
+(tooltip-mode      -1)
+(scroll-bar-mode    1)
+(blink-cursor-mode  1)
+;(setq use-dialog-box     nil)
+(setq redisplay-dont-pause t)
+(setq ring-bell-function 'ignore)  ; звук ошибки отключить
+(setq x-select-enable-clipboard t) ; использовать буфер обмена OC
 (setq make-backup-files        nil)
 (setq auto-save-list-file-name nil)
 (setq auto-save-default        nil)
+(setq inhibit-splash-screen   t)
+(setq ingibit-startup-message t)
+(electric-pair-mode    1)  ; авто-скобки/кавычки
+;(electric-indent-mode -1) ; автоотступ, если глючит - можно отключить
+
+;; Автоматический перенос длинных строк
+;(setq word-wrap          t)
+;(global-visual-line-mode t)
+
+; IDO plugin - псевдо-интерактивное открытие файлов в командной строке
+(require 'ido)
+(ido-mode                      t)
+(icomplete-mode                t)
+(ido-everywhere                t)
+(setq ido-vitrual-buffers      t)
+(setq ido-enable-flex-matching t)
+
+(require 'bs) ; Навигация по буферам
+(require 'ibuffer)
+(defalias 'list-buffers 'ibuffer)      ; список всех буферов: C-x C-b
+(global-set-key (kbd "<f3>") 'bs-show) ; список буферов пользователя: F3
+
+; Org-mode !!! ИЗУЧИТЬ ВОЗМОЖНОСТИ !!!
+(require 'org)
+;(global-set-key "C-c a" 'org-agenda)
+;(global-set-key "C-c b" 'org-iswitchb)
+;(global-set-key "C-c l" 'org-store-link)
+(add-to-list 'auto-mode-alist '(".org$" . Org-mode)) ; ассоциируем *.org файлы с org-mode
+
+; F6: ввод имени функции для быстрого перехода к ней
+(require 'imenu)
+(setq imenu-auto-rescan      t)
+(setq imenu-use-popup-menu nil)
+(global-set-key (kbd "<f6>") 'imenu)
 
 ;;
 ; cd ~/.emacs.d
 ; git clone -b master --single-branch https://github.com/ergoemacs/ergoemacs-mode.git
 ;;
-(add-to-list 'load-path "/home/ib/files/work/github.com/ergoemacs-mode")
+(add-to-list 'load-path "/home/ib/files/github.com/ergoemacs-mode")
 (require 'ergoemacs-mode)
 (setq ergoemacs-theme nil)
 (setq ergoemacs-keyboard-layout "us")
@@ -87,5 +130,30 @@
 (global-set-key (kbd "<f2>") 'save-buffer)
 (global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
 
+;; Coding-system settings
+(set-language-environment 'UTF-8)
+(if (system-is-linux)
+    (progn
+        (setq default-buffer-file-coding-system 'utf-8)
+        (setq-default coding-system-for-read    'utf-8)
+        (setq file-name-coding-system           'utf-8)
+        (set-selection-coding-system            'utf-8)
+        (set-keyboard-coding-system             'utf-8-unix)
+        (set-terminal-coding-system             'utf-8)
+        (prefer-coding-system                   'utf-8))
+;    (progn
+;        (prefer-coding-system                   'windows-1251)
+;        (set-terminal-coding-system             'windows-1251)
+;        (set-keyboard-coding-system             'windows-1251-unix)
+;        (set-selection-coding-system            'windows-1251)
+;        (setq file-name-coding-system           'windows-1251)
+;        (setq-default coding-system-for-read    'windows-1251)
+;        (setq default-buffer-file-coding-system 'windows-1251))
+)
 
-
+; Продолжение на
+;
+;  http://security-corp.org/programming/25178-gnu-emacs-statya-kotoruyu-ya-tak-i-ne-nashel.html
+;
+; с раздела "Цветовые схемы".
+;
