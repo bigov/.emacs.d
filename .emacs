@@ -88,16 +88,19 @@
 ;(global-visual-line-mode t)
 
 ; IDO plugin - псевдо-интерактивное открытие файлов в командной строке
-(require 'ido)
-(ido-mode                      t)
-(icomplete-mode                t)
-(ido-everywhere                t)
-(setq ido-vitrual-buffers      t)
-(setq ido-enable-flex-matching t)
+ ; [отключен, так как мешает работе плагина "dired"]
+;(require 'ido)
+;(ido-mode                      t)
+;(icomplete-mode                t)
+;(ido-everywhere                t)
+;(setq ido-vitrual-buffers      t)
+;(setq ido-enable-flex-matching t)
 
 (require 'bs) ; Навигация по буферам
 (require 'ibuffer)
 (defalias 'list-buffers 'ibuffer)      ; список всех буферов: C-x C-b
+(setq bs-configurations ; выводить в общем буфере и ссылку на *scratch
+      '(("files" "^\\*scratch\\*" nil nil bs-visits-non-file bs-sort-buffer-interns-are-last)))
 (global-set-key (kbd "<f3>") 'bs-show) ; список буферов пользователя: F3
 
 ; Org-mode !!! ИЗУЧИТЬ ВОЗМОЖНОСТИ !!!
