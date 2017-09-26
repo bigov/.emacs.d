@@ -23,15 +23,20 @@
 ;; Список активных буферов для быстрого перехода
 (global-set-key (kbd "ESC <f9>") 'bs-show)
 
-;; Сброс терминала
+;; Копировать выделение в буфер
 (global-unset-key (kbd "C-c"))
-(global-set-key (kbd "C-c") 'suspend-frame)
+(global-set-key (kbd "C-c") 'kill-ring-save)
+(global-set-key (kbd "C-с") 'kill-ring-save); =RU= раскладка
+
+;; Сброс терминала
+(global-unset-key (kbd "M-w"))
+(global-set-key (kbd "M-w") 'suspend-frame)
+(global-set-key (kbd "M-ц") 'suspend-frame)
 
 (global-unset-key (kbd "C-z"))
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-я") 'undo)
 
 ;; Дублирование базовых команд в русской раскладке
-(global-set-key (kbd "M-ц") 'kill-ring-save) ; M-w (копировать в буфер)
 (global-set-key (kbd "C-н") 'yank) ; C-y (вставка из буфера)
 
