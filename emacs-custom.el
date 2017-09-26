@@ -6,11 +6,11 @@
 ;;(setq slime-contribs '(slime-fancy))
 ;;
 ;; и загрузку своей кастомной конфигурации командой
-;;(add-to-list 'load-path "~/.emacs.d/custom-config")
-;;(require 'custom-config)
+;;(add-to-list 'load-path "~/.emacs.d/emacs-custom")
+;;(require 'emacs-custom)
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-(provide 'custom-config)
+(provide 'emacs-custom)
 
 ;; Вначале загружаем сторонние модули
 (require 'dired)
