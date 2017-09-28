@@ -5,38 +5,33 @@
 ;;
 (provide 'custom-keys)
 
+;;<f2> <f2>, <f2> 2, C-x 6 <f2>, C-x 6 2 
+;;вызов команды "2C-two-columns"
+(global-unset-key (kbd "<f2> <f2>"))
+(global-unset-key (kbd "<f2> 2"))
+;; ^^
 ;; Сохранить текущий файл
-(global-unset-key (kbd "<f5>"))
-(global-set-key (kbd "<f5>") 'save-buffer)
+(global-set-key (kbd "<f2>") 'save-buffer)
 
 ;; Ввод имени функции для быстрого перехода
 (global-set-key (kbd "<f6>") 'imenu)
 
-;; Выход из Emacs
-(global-unset-key (kbd "<f8>"))
-(global-set-key (kbd "<f8>") 'save-buffers-kill-terminal)
-
-;; Открыть файл
-(global-unset-key (kbd "<f9>"))
-(global-set-key (kbd "<f9>") 'find-file)
+;; Открыть меню
+(global-set-key (kbd "<f9>") 'menu-bar-open)
 
 ;; Список активных буферов для быстрого перехода
 (global-set-key (kbd "ESC <f9>") 'bs-show)
 
-;; Копировать выделение в буфер
-(global-unset-key (kbd "C-c"))
-(global-set-key (kbd "C-c") 'kill-ring-save)
-(global-set-key (kbd "C-с") 'kill-ring-save); =RU= раскладка
+;; Выход из Emacs
+(global-unset-key (kbd "<f10>"))
+(global-set-key (kbd "<f10>") 'save-buffers-kill-terminal)
 
-;; Сброс терминала
-(global-unset-key (kbd "M-w"))
-(global-set-key (kbd "M-w") 'suspend-frame)
-(global-set-key (kbd "M-ц") 'suspend-frame)
-
+;;C-z, C-x C-z вызов команды "suspend-frame"
 (global-unset-key (kbd "C-z"))
+;; ^^
+;; Отменить последнее изменение ( C-_, C-/, C-x u )
 (global-set-key (kbd "C-z") 'undo)
 (global-set-key (kbd "C-я") 'undo)
 
 ;; Дублирование базовых команд в русской раскладке
-(global-set-key (kbd "C-н") 'yank) ; C-y (вставка из буфера)
-
+(global-set-key (kbd "C-н") 'yank) ; Ru: C-y
