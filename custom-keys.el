@@ -34,4 +34,7 @@
 (global-set-key (kbd "C-я") 'undo)
 
 ;; Дублирование базовых команд в русской раскладке
-(global-set-key (kbd "C-н") 'yank) ; Ru: C-y
+(global-set-key (kbd "C-н") 'yank)           ; Ru: C-y
+(global-set-key (kbd "M-ц") 'kill-ring-save) ; Ru: Alt-w
+(global-set-key (kbd "C-ц") 'kill-region)    ; Ru: C-w
+

@@ -1,3 +1,3 @@
-# emacs.cfg
+# emacs-custom
 
-My config files for Emacs editor
+My personal config files for Emacs editor

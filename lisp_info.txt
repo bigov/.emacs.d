@@ -15,6 +15,7 @@
 ----------------------------------------------------------------------
 
 Потом устанавливается загрузчик библиотек:
+( https://www.quicklisp.org/beta/#installation )
 
 $ curl -O https://beta.quicklisp.org/quicklisp.lisp
 $ curl -O https://beta.quicklisp.org/quicklisp.lisp.asc
@@ -23,4 +24,18 @@ $ gpg --verify quicklisp.lisp.asc quicklisp.lisp
 Непосредственно установка загрузчика:
 
 $ sbcl --load quicklisp.lisp
+* (quicklisp-quickstart:install)
 
+После установки
+    To load a system, use: (ql:quickload "system-name")
+
+    To find systems, use: (ql:system-apropos "term")
+
+    To load Quicklisp every time you start Lisp, use: (ql:add-to-init-file)
+
+    For more information, see http://www.quicklisp.org/beta/
+
+-----------------------------------------------------------------------
+потом устанавливаем среду разработки/отладки на Lisp:
+
+  $ git clone -b master --single-branch https://github.com/slime/slime.git
