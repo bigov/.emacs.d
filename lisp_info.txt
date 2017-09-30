@@ -1,0 +1,26 @@
+
+Про использование LISP
+----------------------
+
+1. В статье https://habrahabr.ru/post/259737/ описано использование лиспа в составе Emacs. Выбор автора - SBCL
+
+# pacman -Syy sbcl
+
+Потом в кофиге Емакса:
+----------------------------------------------------------------------
+...
+(require 'cl)
+(setq-default inferior-lisp-program "sbcl")
+...
+----------------------------------------------------------------------
+
+Потом устанавливается загрузчик библиотек:
+
+$ curl -O https://beta.quicklisp.org/quicklisp.lisp
+$ curl -O https://beta.quicklisp.org/quicklisp.lisp.asc
+$ gpg --verify quicklisp.lisp.asc quicklisp.lisp
+
+Непосредственно установка загрузчика:
+
+$ sbcl --load quicklisp.lisp
+

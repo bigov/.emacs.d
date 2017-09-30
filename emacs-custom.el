@@ -11,11 +11,20 @@
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
+;;================
+
+(require 'package)
+(package-initialize)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+;;================
 
 ;; Вначале загружаем сторонние модули
 (require 'dired)
 (setq dired-recursive-deletes 'top) ; разрешить удалять непустые директории
 
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ;; После сторонних модулей загружаем свои
 (require 'custom-keys)
 
@@ -77,15 +86,15 @@
 ;; Coding-system settings
 (set-language-environment 'UTF-8)
 ;(if (system-is-linux)
-;    (progn
-(setq default-buffer-file-coding-system 'utf-8)
-(setq-default coding-system-for-read    'utf-8)
-(setq file-name-coding-system           'utf-8)
-(set-selection-coding-system            'utf-8)
-(set-keyboard-coding-system             'utf-8-unix)
-(set-terminal-coding-system             'utf-8)
-(prefer-coding-system                   'utf-8)
-;)
+(progn
+  (setq default-buffer-file-coding-system 'utf-8)
+  (setq-default coding-system-for-read    'utf-8)
+  (setq file-name-coding-system           'utf-8)
+  (set-selection-coding-system            'utf-8)
+  (set-keyboard-coding-system             'utf-8-unix)
+  (set-terminal-coding-system             'utf-8)
+  (prefer-coding-system                   'utf-8)
+)
 ;    (progn
 ;        (prefer-coding-system                   'windows-1251)
 ;        (set-terminal-coding-system             'windows-1251)
