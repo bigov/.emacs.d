@@ -5,7 +5,14 @@
 ;;
 (provide 'custom-keys)
 
-;;<f2> <f2>, <f2> 2, C-x 6 <f2>, C-x 6 2 
+;; Рекомендуемые клавиши для ORG
+
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-cb" 'org-iswitchb)
+
+;;<f2> <f2>, <f2> 2, C-x 6 <f2>, C-x 6 2
 ;;вызов команды "2C-two-columns"
 (global-unset-key (kbd "<f2> <f2>"))
 (global-unset-key (kbd "<f2> 2"))
@@ -37,4 +44,5 @@
 (global-set-key (kbd "C-н") 'yank)           ; Ru: C-y
 (global-set-key (kbd "M-ц") 'kill-ring-save) ; Ru: Alt-w
 (global-set-key (kbd "C-ц") 'kill-region)    ; Ru: C-w
-
+(global-set-key (kbd "C-ч в") 'dired)        ; Ru: C-x d
+(global-set-key (kbd "C-ч 1") 'delete-other-windows)
