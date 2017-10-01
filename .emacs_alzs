@@ -21,7 +21,7 @@
  '(inhibit-startup-screen 0)
  '(package-selected-packages
    (quote
-    (slime tabbar-ruler nlinum nlinum-hl undo-tree ergoemacs-mode)))
+    (org-edna slime tabbar-ruler nlinum nlinum-hl undo-tree ergoemacs-mode)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(standard-indent 2)
@@ -38,7 +38,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Загрузка кастомной конфигурации
-(add-to-list 'load-path "~/files/github.com/emacs-custom")
+(add-to-list 'load-path "/home/ib/files/github.com/emacs-custom")
 (require 'emacs-custom)
 
 ;; LISP бинарники по-умолчанию
