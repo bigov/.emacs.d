@@ -1,6 +1,7 @@
 ;;
-;; Мой личный конфиг (30.09.2017)
+;; Мой личный конфиг (01.10.2017)
 ;;
+
 (require 'package)
 (package-initialize)
 
@@ -21,7 +22,7 @@
  '(inhibit-startup-screen 0)
  '(package-selected-packages
    (quote
-    (org-edna slime tabbar-ruler nlinum nlinum-hl undo-tree ergoemacs-mode)))
+    (org-edna slime tabbar-ruler nlinum nlinum-hl undo-tree)))
  '(show-paren-mode t)
  '(size-indication-mode t)
  '(standard-indent 2)
@@ -56,11 +57,10 @@
 (when (window-system)
     (set-frame-size (selected-frame) 120 43)
     (set-frame-position (selected-frame) 400 0)
-)
+    )
 ;; System type fo multisystem config
-;(defun system-is-linux()   (string-equal system-type "gnu/linux"))
-;(defun system-is-windows() (string-equal system-type "windows-nt"))
-; path-variable
-;(when (system-is-linux)    (setq unix-init-path "~/.emacs.add"))
-;(when (system-is-windows)  (setq win-init-path "C:/.emacs.d"))
-
+;;(defun system-is-linux()   (string-equal system-type "gnu/linux"))
+;;(defun system-is-windows() (string-equal system-type "windows-nt"))
+;; path-variable
+;;(when (system-is-linux)    (setq unix-init-path "~/.emacs.add"))
+;;(when (system-is-windows)  (setq win-init-path "C:/.emacs.d"))
