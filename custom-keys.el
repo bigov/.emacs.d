@@ -6,7 +6,6 @@
 (provide 'custom-keys)
 
 ;; Рекомендуемые клавиши для ORG
-
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
@@ -34,10 +33,13 @@
 (global-set-key (kbd "<f10>") 'save-buffers-kill-terminal)
 
 ;;C-z, C-x C-z вызов команды "suspend-frame"
-(global-unset-key (kbd "C-z"))
+;;(global-unset-key (kbd "C-z"))
+(cua-mode)
 ;; ^^
-;; Отменить последнее изменение ( C-_, C-/, C-x u )
-(global-set-key (kbd "C-z") 'undo)
+;;(global-set-key (kbd "C-с") 'kill-ring-save)
+(global-set-key (kbd "C-с") 'cua-copy-region)
+;;(global-set-key (kbd "C-ч") 'cua-cut-region)
+(global-set-key (kbd "C-м") 'cua-paste)
 (global-set-key (kbd "C-я") 'undo)
 
 ;; Дублирование базовых команд в русской раскладке

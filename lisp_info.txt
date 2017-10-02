@@ -36,6 +36,11 @@ $ sbcl --load quicklisp.lisp
     For more information, see http://www.quicklisp.org/beta/
 
 -----------------------------------------------------------------------
+Есть инструкция на оф.сайте:
+     http://lisp-lang.org/learn/getting-started/
+-----------------------------------------------------------------------
+
 потом устанавливаем среду разработки/отладки на Lisp:
 
   $ git clone -b master --single-branch https://github.com/slime/slime.git
+

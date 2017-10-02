@@ -38,6 +38,10 @@
 (setq font-lock-maximum-decoration t)
 
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; Если надо, то можно тут, а можно и в локальном конфиге (.emacs)
+;; подключить Lisp
+;;(require 'custom-lisp)
+
 ;; После сторонних модулей загружаем свои
 (require 'custom-keys)
 
@@ -108,6 +112,9 @@
 ;; Автоматический перенос длинных строк
 (setq word-wrap          t)
 (global-visual-line-mode t)
+
+(setq fill-column 78)
+(auto-fill-mode t)
 
 ;; Indent settings
 (setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
