@@ -1,9 +1,3 @@
 
-ghkh
-gfrdsj
-jjj
-uuu
 
-
-gfrdsj
-
+(message "Итог %d" (* 7 5))

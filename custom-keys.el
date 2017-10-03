@@ -1,8 +1,8 @@
-;;
-;; file: custom-keys.el
-;;
-;; Индивидуальная настройка работы клавишных комбинаций
-;;
+;;;
+;;; file: custom-keys.el
+;;;
+;;; Индивидуальная настройка работы клавишных комбинаций
+;;;
 (provide 'custom-keys)
 
 ;; Рекомендуемые клавиши для ORG
@@ -10,6 +10,8 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+;;(global-set-key (kbd "") 'eval-last-sexp)
 
 ;;<f2> <f2>, <f2> 2, C-x 6 <f2>, C-x 6 2
 ;;вызов команды "2C-two-columns"
@@ -32,17 +34,19 @@
 (global-unset-key (kbd "<f10>"))
 (global-set-key (kbd "<f10>") 'save-buffers-kill-terminal)
 
-;;C-z, C-x C-z вызов команды "suspend-frame"
-;;(global-unset-key (kbd "C-z"))
 (cua-mode)
 ;; ^^
 ;;(global-set-key (kbd "C-с") 'kill-ring-save)
-(global-set-key (kbd "C-с") 'cua-copy-region)
 ;;(global-set-key (kbd "C-ч") 'cua-cut-region)
-(global-set-key (kbd "C-м") 'cua-paste)
-(global-set-key (kbd "C-я") 'undo)
+
+(global-unset-key (kbd "C-e"))
+(global-set-key (kbd "C-e") 'center-region)
 
 ;; Дублирование базовых команд в русской раскладке
+(global-set-key (kbd "C-у") 'center-region)  ; Ru: C-e
+(global-set-key (kbd "C-с") 'cua-copy-region); Ru: C-c
+(global-set-key (kbd "C-м") 'cua-paste)      ; Ru: C-v
+(global-set-key (kbd "C-я") 'undo)           ; Ru: C-z
 (global-set-key (kbd "C-н") 'yank)           ; Ru: C-y
 (global-set-key (kbd "M-ц") 'kill-ring-save) ; Ru: Alt-w
 (global-set-key (kbd "C-ц") 'kill-region)    ; Ru: C-w
