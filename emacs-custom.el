@@ -84,16 +84,18 @@
 (show-paren-mode t)            ; включить
 
 ;; Настройка плавного скроллинга
-(setq scroll-step   1) ;; вверх-вниз по 1 строке
-(setq scroll-margin 8) ;; сдвигать буфер верх/вниз когда курсор в 8 шагах от верхней/нижней границы
+(setq scroll-step   1) ; вверх-вниз по 1 строке
+(setq scroll-margin 8) ; сдвигать буфер верх/вниз когда курсор в 8 шагах от верхней/нижней границы
 (setq scroll-conservatively 10000)
 
 ;; Графические элементы окна
-(menu-bar-mode      t)             ; строку меню отображать
-(tool-bar-mode      t)             ; панель инструментов
+(when (window-system)
+    (scroll-bar-mode  t)
+    (tool-bar-mode    t))    ; панель инструментов
+(menu-bar-mode      t)       ; строка меню
+
 (tooltip-mode       t)
-(scroll-bar-mode    t)
-(blink-cursor-mode  t)
+;;(blink-cursor-mode  t)
 (setq use-dialog-box     t)
 (setq redisplay-dont-pause t)
 (setq ring-bell-function 'ignore)  ; звук ошибки отключить
