@@ -46,6 +46,16 @@
 (add-to-list 'load-path custom-config)
 (add-to-list 'custom-theme-load-path custom-config)
 
+;;(add-to-list 'custom-theme-load-path (concat my-files "github.com/color-themes"))
+
 (require 'emacs-custom)       ; Загрузка кастомной конфигурации
-(load-theme 'github-modern t) ; Загрузка кастомной темы
+(load-theme 'custom t) ; Загрузка кастомной темы
+(set-face-background 'linum "#EEE")
+
+(set-face-background 'mode-line "#bcbcbc")
+(set-face-foreground 'mode-line "#333")
+
+(set-face-background 'mode-line-inactive "#eee")
+(set-face-foreground 'mode-line-inactive "#888")
+
 ;;(require 'custom-lisp)
