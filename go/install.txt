@@ -1,0 +1,50 @@
+
+               #######################################
+                   Настройка Emacs для работы с GO
+               #######################################
+
+Устанавливаем набор приложений, которые необходимы плагинам:
+==============================================================================
+
+An autocompletion daemon for the Go programming language
+   go get -u github.com/nsf/gocode
+
+Print where symbols are defined in Go source code
+   go get -u github.com/rogpeppe/godef
+
+ctags-compatible tag generator for Go
+   go get -u github.com/jstemmer/gotags
+
+errcheck is a program for checking for unchecked errors in go programs
+   go get -u github.com/kisielk/errcheck
+
+guru: a tool for answering questions about Go source code
+   go get -u golang.org/x/tools/cmd/guru
+
+lint for the Go source code 
+   go get -u github.com/golang/lint/golint
+
+command performs precise type-safe renaming of identifiers in Go source code
+   go get -u golang.org/x/tools/cmd/gorename
+
+Command goimports updates your Go import lines, adding missing ones and removing unreferenced ones.
+   go get -u golang.org/x/tools/cmd/goimports
+
+godoc: Go Documentation Server
+   sudo go get -u golang.org/x/tools/cmd/godoc
+
+Обратите внимание, что "godoc" нуждается в "sudo", т.к. ставятся в системную директорию, остальные будут установлены в локальный "GOPATH". Я бы посоветовал ставить "godoc" последним, что бы он не создавал директорий с правами root.
+
+Из плагинов Emacs понадобятся следующие:
+==============================================================================
+   go-mode, go-eldoc, company, company-go, yasnippet, go-rename,
+   multi-compile, flycheck, gotest, go-scratch, go-direx, go-guru.
+
+----------------
+почему-то не установились пакеты с первой попытки. Пришлось запускать команду
+          package-install-selected
+
+----------------------------------------------
+
+далее - по инстркуции на
+      http://reangdblog.blogspot.com/2016/06/emacs-ide-go.html

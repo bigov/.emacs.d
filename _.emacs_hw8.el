@@ -2,6 +2,7 @@
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
+(require 'package)
 (package-initialize)
 
 (custom-set-variables
@@ -14,6 +15,9 @@
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(display-time-mode t)
+ '(package-selected-packages
+   (quote
+    (go-guru go-direx go-scratch gotest flycheck multi-compile go-rename yasnippet company-go company go-eldoc go-mode)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 
@@ -22,7 +26,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "outline" :slant normal :weight normal :height 90 :width normal)))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Размер и положение окна Emacs при запуске
@@ -42,11 +46,9 @@
 (when (system-is-linux)    (setq my-files "~/files/"))
 (when (system-is-msys)     (setq my-files "~/"))
 (when (system-is-windows)  (setq my-files "f:/"))
-(setq custom-config (concat my-files "github.com/emacs-custom"))
-(add-to-list 'load-path custom-config)
-(add-to-list 'custom-theme-load-path custom-config)
-
-;;(add-to-list 'custom-theme-load-path (concat my-files "github.com/color-themes"))
+(setq custom-config-dir (concat my-files "github.com/emacs-custom"))
+(add-to-list 'load-path custom-config-dir)
+(add-to-list 'custom-theme-load-path custom-config-dir)
 
 (require 'emacs-custom)       ; Загрузка кастомной конфигурации
 (load-theme 'custom t) ; Загрузка кастомной темы
@@ -58,4 +60,5 @@
 (set-face-background 'mode-line-inactive "#eee")
 (set-face-foreground 'mode-line-inactive "#888")
 
+(require 'custom-go)
 ;;(require 'custom-lisp)
