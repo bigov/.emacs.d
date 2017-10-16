@@ -19,7 +19,7 @@
 ;; выше. Он помимо собственно форматирования, умеет добавлять необходимые
 ;; импорты в текущем файле и вычищать неиспользуемые. Удобно вызывать его
 ;; автоматически, при сохранении:
-(add-hook 'before-save-hook 'gofmt-before-save)
+;;(add-hook 'before-save-hook 'gofmt-before-save) ; автоматически исправляет исходники
 (setq-default gofmt-command "goimports")
 
 ;;Автодополнение - company, company-go и добавляем в конфиг: 
