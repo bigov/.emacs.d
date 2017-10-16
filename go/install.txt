@@ -33,14 +33,16 @@ Command goimports updates your Go import lines, adding missing ones and removing
 godoc: Go Documentation Server
    sudo go get -u golang.org/x/tools/cmd/godoc
 
-Обратите внимание, что "godoc" нуждается в "sudo", т.к. ставятся в системную директорию, остальные будут установлены в локальный "GOPATH". Я бы посоветовал ставить "godoc" последним, что бы он не создавал директорий с правами root.
+Обратите внимание, что "godoc" нуждается в "sudo", т.к. ставится в системную директорию, остальные будут
+установлены в локальный "GOPATH". Я бы посоветовал ставить "godoc" последним, что бы он не создавал
+директорий с правами root.
 
 Из плагинов Emacs понадобятся следующие:
 ==============================================================================
    go-mode, go-eldoc, company, company-go, yasnippet, go-rename,
    multi-compile, flycheck, gotest, go-scratch, go-direx, go-guru.
 
-----------------
+------------------------------------------------------------------------------
 почему-то не установились пакеты с первой попытки. Пришлось запускать команду
           package-install-selected
 

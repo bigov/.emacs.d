@@ -43,12 +43,13 @@
 (global-set-key (kbd "C-e") 'center-region)
 
 ;; Дублирование базовых команд в русской раскладке
-(global-set-key (kbd "C-у") 'center-region)  ; Ru: C-e
-(global-set-key (kbd "C-с") 'cua-copy-region); Ru: C-c
-(global-set-key (kbd "C-м") 'cua-paste)      ; Ru: C-v
-(global-set-key (kbd "C-я") 'undo)           ; Ru: C-z
-(global-set-key (kbd "C-н") 'yank)           ; Ru: C-y
-(global-set-key (kbd "M-ц") 'kill-ring-save) ; Ru: Alt-w
-(global-set-key (kbd "C-ц") 'kill-region)    ; Ru: C-w
-(global-set-key (kbd "C-ч в") 'dired)        ; Ru: C-x d
+(global-set-key (kbd "C-у") 'center-region)      ; C-e
+(global-set-key (kbd "C-г") 'universal-argument) ; C-u
+(global-set-key (kbd "C-с") 'cua-copy-region)    ; C-c
+(global-set-key (kbd "C-м") 'cua-paste)          ; C-v
+(global-set-key (kbd "C-я") 'undo)               ; C-z
+(global-set-key (kbd "C-н") 'yank)               ; C-y
+(global-set-key (kbd "M-ц") 'kill-ring-save)     ; Alt-w
+(global-set-key (kbd "C-ц") 'kill-region)        ; C-w
+(global-set-key (kbd "C-ч в") 'dired)            ; C-x d
 (global-set-key (kbd "C-ч 1") 'delete-other-windows)
