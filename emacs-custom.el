@@ -1,12 +1,8 @@
 ;;
 ;; Персональные настройки Emacs
 ;;
-;; В локальном конфиге выполним настройку Лиспа
-;;(setq inferior-lisp-program "/usr/bin/sbcl")
-;;(setq slime-contribs '(slime-fancy))
-;;
-;; и загрузку своей кастомной конфигурации командой
-;;(add-to-list 'load-path "~/.emacs.d/emacs-custom")
+;; Загрузка кастомной конфигурации:
+;;(add-to-list 'load-path "~/files/github.com/emacs-custom")
 ;;(require 'emacs-custom)
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,10 +23,10 @@
 (require 'ibuffer)
 (defalias 'list-buffers 'ibuffer)      ; список всех буферов: C-x C-b
 
-;; F6: ввод имени функции для быстрого перехода к ней (custom-keys)
-(require 'imenu)
-(setq imenu-auto-rescan      t)
-(setq imenu-use-popup-menu nil)
+;; <F6>: ввод имени функции для быстрого перехода к ней (custom-keys)
+;;(require 'imenu)
+;;(setq imenu-auto-rescan      t)
+;;(setq imenu-use-popup-menu nil)
 
 ;; Syntax highlighting
 (require 'font-lock)
@@ -108,7 +104,7 @@
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t)
 
-(electric-pair-mode    t) ; авто-скобки/кавычки
+;;(electric-pair-mode    t) ; авто-скобки/кавычки
 (electric-indent-mode  t) ; автоотступ, если глючит - можно отключить
 
 ;; Автоматический перенос длинных строк
@@ -119,13 +115,13 @@
 (auto-fill-mode t)
 
 ;; Indent settings
-(setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
+;;(setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
 (setq-default tab-width          4) ;; ширина табуляции - 4 пробельных символа
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
-(setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
+;;(setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
-(setq lisp-indent-function  'common-lisp-indent-function)
+;;(setq lisp-indent-function  'common-lisp-indent-function)
 
 ;; Coding-system settings
 ;;(set-language-environment 'UTF-8)

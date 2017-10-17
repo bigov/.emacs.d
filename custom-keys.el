@@ -5,6 +5,8 @@
 ;;;
 (provide 'custom-keys)
 
+(global-set-key (kbd "<select>") 'end-of-line)
+
 ;; Рекомендуемые клавиши для ORG
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
