@@ -104,9 +104,9 @@
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t)
 
-(electric-pair-mode      nil) ; авто-скобки/кавычки
-(electric-indent-mode      t) ; автоотступ, если глючит - можно отключить
-;;(electric-indent-functions t)
+(electric-pair-mode         nil) ; авто-скобки/кавычки
+(electric-indent-mode         t) ; автоотступ, если глючит - можно отключить
+(electric-indent-just-newline t)
 
 ;; Автоматический перенос длинных строк
 (setq word-wrap          t)
@@ -121,9 +121,8 @@
 (setq-default tab-width          4) ; ширина табуляции - 4 пробельных символа
 (setq-default c-basic-offset     4)
 (setq-default standart-indent    4) ; стандартная ширина отступа - 4 пробельных символа
-(setq-default lisp-body-indent   4) ; сдвигать Lisp-выражения на 4 пробельных символа
 
-(global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
+(setq lisp-body-indent 2) ; сдвигать Lisp-выражения на 2 символа
 (setq lisp-indent-function  'common-lisp-indent-function)
 
 ;; Coding-system settings
