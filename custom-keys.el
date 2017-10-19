@@ -5,16 +5,12 @@
 ;;;
 (provide 'custom-keys)
 
-;; Из коробки TAB работает в ражиме indent-relative (вызывается C-i)
+;; Из коробки TAB работает в режиме indent-relative (вызывается C-i)
 ;; При редактировании простого текста можно использовать
 ;; режим, включаемый командой tab-to-tab-stop (вызов M-i)
 
-;; У меня стандартный (умный) TAB перенесен на Ctrl-Tab
-(global-set-key (kbd "C-<tab>") 'indent-for-tab-command)
-
-;; а одночный ТАБ переключен на вставку трех пробелов
-(global-unset-key (kbd "<tab>"))
-(global-set-key [tab] #'(lambda () (interactive)
+;; Ctrl-ТАБ переключен на вставку трех пробелов
+(global-set-key (kbd "C-<tab>") #'(lambda () (interactive)
     (if (use-region-p)
         (indent-region)
         (insert "   "))))
@@ -26,8 +22,6 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-iswitchb)
-
-;;(global-set-key (kbd "") 'eval-last-sexp)
 
 ;;<f2> <f2>, <f2> 2, C-x 6 <f2>, C-x 6 2
 ;;вызов команды "2C-two-columns"
@@ -59,13 +53,13 @@
 (global-set-key (kbd "C-e") 'center-region)
 
 ;; Дублирование базовых команд в русской раскладке
-(global-set-key (kbd "C-у") 'center-region)      ; C-e
-(global-set-key (kbd "C-г") 'universal-argument) ; C-u
-(global-set-key (kbd "C-с") 'cua-copy-region)    ; C-c
-(global-set-key (kbd "C-м") 'cua-paste)          ; C-v
-(global-set-key (kbd "C-я") 'undo)               ; C-z
-(global-set-key (kbd "C-н") 'yank)               ; C-y
-(global-set-key (kbd "M-ц") 'kill-ring-save)     ; Alt-w
-(global-set-key (kbd "C-ц") 'kill-region)        ; C-w
-(global-set-key (kbd "C-ч в") 'dired)            ; C-x d
-(global-set-key (kbd "C-ч 1") 'delete-other-windows)
+(global-set-key (kbd "C-у") 'center-region)         ; C-e
+(global-set-key (kbd "C-г") 'universal-argument)    ; C-u
+(global-set-key (kbd "C-с") 'cua-copy-region)       ; C-c
+(global-set-key (kbd "C-ч") 'kill-region)           ; C-x
+(global-set-key (kbd "C-м") 'cua-paste)             ; C-v
+(global-set-key (kbd "C-я") 'undo)                  ; C-z
+(global-set-key (kbd "C-н") 'yank)                  ; C-y
+(global-set-key (kbd "C-ц") 'kill-region)           ; C-w
+(global-set-key (kbd "M-ц") 'kill-ring-save)        ; M-w
+(global-set-key (kbd "M-ш") 'tab-to-tab-stop)       ; M-i

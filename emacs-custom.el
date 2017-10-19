@@ -106,7 +106,7 @@
 
 (electric-pair-mode      nil) ; авто-скобки/кавычки
 (electric-indent-mode      t) ; автоотступ, если глючит - можно отключить
-(electric-indent-functions t)
+;;(electric-indent-functions t)
 
 ;; Автоматический перенос длинных строк
 (setq word-wrap          t)
