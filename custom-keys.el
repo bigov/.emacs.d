@@ -5,6 +5,20 @@
 ;;;
 (provide 'custom-keys)
 
+;; Из коробки TAB работает в ражиме indent-relative (вызывается C-i)
+;; При редактировании простого текста можно использовать
+;; режим, включаемый командой tab-to-tab-stop (вызов M-i)
+
+;; У меня стандартный (умный) TAB перенесен на Ctrl-Tab
+(global-set-key (kbd "C-<tab>") 'indent-for-tab-command)
+
+;; а одночный ТАБ переключен на вставку трех пробелов
+(global-unset-key (kbd "<tab>"))
+(global-set-key [tab] #'(lambda () (interactive)
+    (if (use-region-p)
+        (indent-region)
+        (insert "   "))))
+
 (global-set-key (kbd "<select>") 'end-of-line)
 
 ;; Рекомендуемые клавиши для ORG

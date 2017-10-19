@@ -56,13 +56,13 @@
 (setq next-line-add-newlines nil)
 
 (defun format-current-buffer()
-    "Пользовательская функция, которая удаляет лишние пробелы,
+  "Пользовательская функция, которая удаляет лишние пробелы,
 заменяет TAB'ы на пробелы, выравнивает отступы и сохраняет буфер в файл"
-    (interactive)
-    (indent-region (point-min) (point-max))
-    (if (not indent-tabs-mode) (untabify (point-min) (point-max)) nil)
-    (delete-trailing-whitespace)
-    (save-buffer))
+  (interactive)
+  (indent-region (point-min) (point-max))
+  (if (not indent-tabs-mode) (untabify (point-min) (point-max)) nil)
+  (delete-trailing-whitespace)
+  (save-buffer))
 (global-set-key (kbd "ESC <f2>") 'format-current-buffer)
 
 (if (equal nil (equal major-mode 'org-mode)) ; перемещение между окнами при помощи
@@ -71,8 +71,8 @@
 (setq search-highlight        t)
 (setq query-replace-highlight t)
 
-(column-number-mode t)         ; показывать в статусе номер колонки
-(display-time-mode             t)
+(column-number-mode            t) ; показывать в статусе номер колонки
+(display-time-mode             t) ; показывать в статусе текущее время
 (setq display-time-24hr-format t) ; Display file size/time in mode-line
 (size-indication-mode          t)
 
@@ -86,13 +86,13 @@
 
 ;; Графические элементы окна
 (when (window-system)
-    (scroll-bar-mode  t)
-    (tool-bar-mode    t))    ; панель инструментов
-(menu-bar-mode      t)       ; строка меню
+  (scroll-bar-mode t)
+  (tool-bar-mode   t)
+  (menu-bar-mode   t))
 
-(tooltip-mode       t)
-;;(blink-cursor-mode  t)
-(setq use-dialog-box     t)
+(tooltip-mode        t)
+(blink-cursor-mode   t)
+(setq use-dialog-box t)
 (setq redisplay-dont-pause t)
 (setq ring-bell-function 'ignore)  ; звук ошибки отключить
 (setq x-select-enable-clipboard t) ; использовать буфер обмена OC
@@ -104,24 +104,27 @@
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t)
 
-;;(electric-pair-mode    t) ; авто-скобки/кавычки
-(electric-indent-mode  t) ; автоотступ, если глючит - можно отключить
+(electric-pair-mode      nil) ; авто-скобки/кавычки
+(electric-indent-mode      t) ; автоотступ, если глючит - можно отключить
+(electric-indent-functions t)
 
 ;; Автоматический перенос длинных строк
 (setq word-wrap          t)
 (global-visual-line-mode t)
 
-(setq fill-column 78)
+(setq-default fill-column 78)
 (auto-fill-mode t)
 
 ;; Indent settings
-;;(setq-default indent-tabs-mode nil) ;; отключить возможность ставить отступы TAB'ом
-(setq-default tab-width          4) ;; ширина табуляции - 4 пробельных символа
+;;(setq-default indent-tabs-mode nil) ;отключить возможность ставить отступы TAB'ом
+;;(setq indent-line-function 'insert-tab)
+(setq-default tab-width          4) ; ширина табуляции - 4 пробельных символа
 (setq-default c-basic-offset     4)
-(setq-default standart-indent    4) ;; стандартная ширина отступа - 4 пробельных символа
-;;(setq-default lisp-body-indent   4) ;; сдвигать Lisp-выражения на 4 пробельных символа
+(setq-default standart-indent    4) ; стандартная ширина отступа - 4 пробельных символа
+(setq-default lisp-body-indent   4) ; сдвигать Lisp-выражения на 4 пробельных символа
+
 (global-set-key (kbd "RET") 'newline-and-indent) ;; при нажатии Enter перевести каретку и сделать отступ
-;;(setq lisp-indent-function  'common-lisp-indent-function)
+(setq lisp-indent-function  'common-lisp-indent-function)
 
 ;; Coding-system settings
 ;;(set-language-environment 'UTF-8)
