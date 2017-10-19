@@ -1,9 +1,10 @@
 ;;
 ;; Персональные настройки Emacs
 ;;
-;; Загрузка кастомной конфигурации:
-;;(add-to-list 'load-path "~/files/github.com/emacs-custom")
-;;(require 'emacs-custom)
+;; Установка пакетов для кастомной конфигурации:
+;;
+;;	M-x package-refresh-contents
+;;  M-x package-install-selected-packages
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
@@ -104,7 +105,7 @@
 (setq inhibit-splash-screen   t)
 (setq ingibit-startup-message t)
 
-(electric-pair-mode         nil) ; авто-скобки/кавычки
+(electric-pair-mode          -1) ; авто-скобки/кавычки ВЫКЛ
 (electric-indent-mode         t) ; автоотступ, если глючит - можно отключить
 (electric-indent-just-newline t)
 

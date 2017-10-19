@@ -35,6 +35,7 @@
 (defun system-is-Linux() (string-equal system-type "gnu/linux"))
 (defun system-is-MsWin() (string-equal system-type "windows-nt"))
 (defun system-is-msys2()  (string-equal system-type "cygwin"))
+(defun system-is-unix()   (string-equal system-type "berkeley-unix"))
 
 (when (system-is-Linux)
     (setq my-files "~/files/")
@@ -49,6 +50,9 @@
         (set-frame-position (selected-frame) 500 0)))
 
 (when (system-is-msys2)
+    (setq my-files "~/"))
+
+(when (system-is-unix)
     (setq my-files "~/"))
 
 (setq custom-config-dir (concat my-files "github.com/emacs-custom"))
