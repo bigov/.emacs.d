@@ -5,6 +5,8 @@
 ;;;
 (provide 'custom-keys)
 
+(cua-mode t) ; GIU MS-Win keys support
+
 ;; Из коробки TAB работает в режиме indent-relative (вызывается C-i)
 ;; При редактировании простого текста можно использовать
 ;; режим, включаемый командой tab-to-tab-stop (вызов M-i)
@@ -43,11 +45,6 @@
 ;; Выход из Emacs
 (global-unset-key (kbd "<f10>"))
 (global-set-key (kbd "<f10>") 'save-buffers-kill-terminal)
-
-(cua-mode)
-;; ^^
-;;(global-set-key (kbd "C-с") 'kill-ring-save)
-;;(global-set-key (kbd "C-ч") 'cua-cut-region)
 
 (global-unset-key (kbd "C-e"))
 (global-set-key (kbd "C-e") 'center-region)

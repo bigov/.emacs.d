@@ -7,8 +7,13 @@
 ;;;
 (provide 'custom-go)
 
-;;http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
-(require 'multi-compile)
+(require 'go-guru)
+(require 'go-direx)
+(require 'go-scratch)
+(require 'gotest)
+(require 'go-rename)
+(require 'go-mode)
+
 (setq multi-compile-alist '((go-mode . (
 ("go-build" "go build -v"
    (locate-dominating-file buffer-file-name ".git"))
@@ -22,8 +27,6 @@
 ;;(add-hook 'before-save-hook 'gofmt-before-save) ; автоматически исправляет исходники
 (setq-default gofmt-command "goimports")
 
-;;Автодополнение - company, company-go и добавляем в конфиг: 
-(require 'company)
 (require 'company-go)
 (add-hook 'go-mode-hook (lambda ()
     (set (make-local-variable 'company-backends) '(company-go))
@@ -35,16 +38,7 @@
 (require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
-;;Сниппеты
-(require 'yasnippet)
-(yas-reload-all)
 (add-hook 'go-mode-hook 'yas-minor-mode)
-
-;; Подсветка ошибок до компиляции очень ускоряет разработку. Для этого
-;; ставим flycheck и делаем общие настройки, по необходимости. Затем
-;; переключаемся в буфер в котором включен режим go-mode и проверяем,
-;; что flycheck видит все необходимые утилиты: "M-x flycheck-verify-setup"
-(require 'flycheck)
 (add-hook 'go-mode-hook 'flycheck-mode)
 
 ;; Переименование функций и структур - самый используемый из методов

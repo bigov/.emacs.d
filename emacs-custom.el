@@ -9,8 +9,15 @@
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
 
-(require 'package)
-(package-initialize)
+(load-theme 'leuven t)
+(when (display-graphic-p) (add-to-list 'default-frame-alist
+									   '(font . "DejaVu Sans Mono-9")))
+
+;;(defun system-is-Linux() (string-equal system-type "gnu/linux"))
+;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))
+;;(defun system-is-msys2() (string-equal system-type "cygwin"))
+;;(defun system-is-unix()  (string-equal system-type "berkeley-unix"))
+
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
@@ -19,10 +26,10 @@
 (require 'dired)
 (setq dired-recursive-deletes 'top) ; разрешить удалять непустые директории
 
-;; Навигация по буферам (Esc F9)
+;; Навигация по буферам (Esc F9), список всех буферов: C-x C-b
 (require 'bs)
 (require 'ibuffer)
-(defalias 'list-buffers 'ibuffer)      ; список всех буферов: C-x C-b
+(defalias 'list-buffers 'ibuffer)      
 
 ;; <F6>: ввод имени функции для быстрого перехода к ней (custom-keys)
 ;;(require 'imenu)
@@ -34,10 +41,22 @@
 (global-font-lock-mode             t) ;; включено с версии Emacs-22. На всякий...
 (setq font-lock-maximum-decoration t)
 
+;;Автодополнение - company, company-go и добавляем в конфиг: 
+(require 'company)
+
+;;Сниппеты
+(require 'yasnippet)
+(yas-reload-all)
+
+;; Подсветка ошибок до компиляции очень ускоряет разработку. Для этого
+;; ставим flycheck и делаем общие настройки, по необходимости. Затем
+;; переключаемся в буфер в котором включен режим go-mode и проверяем,
+;; что flycheck видит все необходимые утилиты: "M-x flycheck-verify-setup"
+(require 'flycheck)
+
+;;http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
+(require 'multi-compile)
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-;; Если надо, то можно тут, а можно и в локальном конфиге (.emacs)
-;; подключить Lisp
-;;(require 'custom-lisp)
 
 ;; После сторонних модулей загружаем свои
 (require 'custom-keys)
@@ -82,11 +101,11 @@
 
 ;; Настройка плавного скроллинга
 (setq scroll-step   1) ; вверх-вниз по 1 строке
-(setq scroll-margin 8) ; сдвигать буфер верх/вниз когда курсор в 8 шагах от верхней/нижней границы
+(setq scroll-margin 6) ; сдвигать буфер верх/вниз когда курсор в 6 строках от верхней/нижней границы
 (setq scroll-conservatively 10000)
 
 ;; Графические элементы окна
-(when (window-system)
+(when (display-graphic-p)
   (scroll-bar-mode t)
   (tool-bar-mode   t)
   (menu-bar-mode   t))
@@ -127,23 +146,13 @@
 (setq lisp-indent-function  'common-lisp-indent-function)
 
 ;; Coding-system settings
-;;(set-language-environment 'UTF-8)
-;;(if (system-is-linux)
+(set-language-environment 'UTF-8)
+
 ;;(progn
-;;    (setq default-buffer-file-coding-system 'utf-8)
-;;    (setq-default coding-system-for-read    'utf-8)
-;;    (setq file-name-coding-system           'utf-8)
-;;    (set-selection-coding-system            'utf-8)
-;;   (set-keyboard-coding-system             'utf-8-unix)
-;;    (set-terminal-coding-system             'utf-8)
-;;    (prefer-coding-system                   'utf-8)
-;;    )
-;;    (progn
-;;        (prefer-coding-system                   'windows-1251)
-;;        (set-terminal-coding-system             'windows-1251)
-;;        (set-keyboard-coding-system             'windows-1251-unix)
-;;        (set-selection-coding-system            'windows-1251)
-;;        (setq file-name-coding-system           'windows-1251)
-;;        (setq-default coding-system-for-read    'windows-1251)
-;;        (setq default-buffer-file-coding-system 'windows-1251))
-;;)
+;;  (setq default-buffer-file-coding-system 'utf-8)
+;;  (setq-default coding-system-for-read    'utf-8)
+;;  (setq file-name-coding-system           'utf-8)
+;;  (set-selection-coding-system            'utf-8)
+;;  (set-keyboard-coding-system             'utf-8-unix)
+;;  (set-terminal-coding-system             'utf-8)
+;;  (prefer-coding-system                   'utf-8))
