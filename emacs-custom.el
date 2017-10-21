@@ -1,17 +1,21 @@
 ;;
 ;; Персональные настройки Emacs
-;;
-;; Установка пакетов для кастомной конфигурации:
-;;
-;;	M-x package-refresh-contents
-;;  M-x package-install-selected-packages
+;; 2017.10.21
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
 
+;; Установка пакетов для кастомной конфигурации:
+;;	M-x package-refresh-contents
+;;  M-x package-install-selected-packages
+(setq package-selected-packages
+ (quote (go-guru go-direx go-scratch gotest flycheck multi-compile
+		 go-rename yasnippet company-go company go-eldoc go-mode )))
+
 (load-theme 'leuven t)
-(when (display-graphic-p) (add-to-list 'default-frame-alist
-									   '(font . "DejaVu Sans Mono-9")))
+(when
+    (display-graphic-p)
+  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
 
 ;;(defun system-is-Linux() (string-equal system-type "gnu/linux"))
 ;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))
