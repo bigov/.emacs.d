@@ -13,9 +13,15 @@
 		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
 (load-theme 'leuven t)
-(when
-    (display-graphic-p)
+(when (display-graphic-p)
+  (set-face-background 'tool-bar "#f5f5f5")
   (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
+
+(set-face-foreground 'mode-line-buffer-id "#ff3")
+(set-face-foreground 'mode-line "#efefef")
+(set-face-background 'mode-line "#44d")
+(set-face-background 'mode-line-inactive "#afafaf")
+(set-face-foreground 'mode-line-inactive "#000000")
 
 ;;(defun system-is-Linux() (string-equal system-type "gnu/linux"))
 ;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))

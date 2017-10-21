@@ -57,12 +57,23 @@
 
 (require 'emacs-custom)  ; Загрузка кастомной конфигурации
 
-;;(load-theme 'custom t)   ; Загрузка кастомной темы
-(set-face-foreground 'mode-line-buffer-id "#fff")
-(set-face-foreground 'mode-line "#ddf")
-;;(set-face-background 'linum "#EEE");
+;;(setq tool-bar (:background ,custom-border :foreground "wheat" :box (:line-width 1 :style released-button)))
+
+
+(setq 'tool-bar-border 1)
+
+
+
+(set-face-background 'tool-bar "#f5f5f5")
+(set-face-foreground 'mode-line-buffer-id "#ffff33")
+(set-face-foreground 'mode-line "#efefef")
+(set-face-background 'mode-line "#44d")
+(set-face-background 'mode-line-inactive "#afafaf")
+(set-face-foreground 'mode-line-inactive "#000000")
+
+
+(set-face-background 'linum "#fff")
 ;;(set-face-background 'mode-line "#bcbcbc")
-;;(set-face-background 'mode-line-inactive "#eee")
 ;;(set-face-foreground 'mode-line-inactive "#888")
 
 ;;(require 'custom-go)
