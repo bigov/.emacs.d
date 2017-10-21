@@ -1,0 +1,46 @@
+
+Про использование LISP
+----------------------
+
+1. В статье https://habrahabr.ru/post/259737/ описано использование лиспа в составе Emacs. Выбор автора - SBCL
+
+# pacman -Syy sbcl
+
+Потом в кофиге Емакса:
+----------------------------------------------------------------------
+...
+(require 'cl)
+(setq-default inferior-lisp-program "sbcl")
+...
+----------------------------------------------------------------------
+
+Потом устанавливается загрузчик библиотек:
+( https://www.quicklisp.org/beta/#installation )
+
+$ curl -O https://beta.quicklisp.org/quicklisp.lisp
+$ curl -O https://beta.quicklisp.org/quicklisp.lisp.asc
+$ gpg --verify quicklisp.lisp.asc quicklisp.lisp
+
+Непосредственно установка загрузчика:
+
+$ sbcl --load quicklisp.lisp
+* (quicklisp-quickstart:install)
+
+После установки
+    To load a system, use: (ql:quickload "system-name")
+
+    To find systems, use: (ql:system-apropos "term")
+
+    To load Quicklisp every time you start Lisp, use: (ql:add-to-init-file)
+
+    For more information, see http://www.quicklisp.org/beta/
+
+-----------------------------------------------------------------------
+Есть инструкция на оф.сайте:
+     http://lisp-lang.org/learn/getting-started/
+-----------------------------------------------------------------------
+
+потом устанавливаем среду разработки/отладки на Lisp:
+
+  $ git clone -b master --single-branch https://github.com/slime/slime.git
+
