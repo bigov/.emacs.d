@@ -13,10 +13,7 @@
 		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
 (load-theme 'leuven t)
-(when (display-graphic-p)
-  (set-face-background 'tool-bar "#f5f5f5")
-  (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-9")))
-
+(when (display-graphic-p) (set-face-background 'tool-bar "#f5f5f5"))
 (set-face-foreground 'mode-line-buffer-id "#ff3")
 (set-face-foreground 'mode-line "#efefef")
 (set-face-background 'mode-line "#44d")
@@ -170,3 +167,6 @@
 ;;  (set-keyboard-coding-system             'utf-8-unix)
 ;;  (set-terminal-coding-system             'utf-8)
 ;;  (prefer-coding-system                   'utf-8))
+
+(add-hook 'go-mode-hook (load "custom-go.el"))
+;;(require 'custom-lisp)

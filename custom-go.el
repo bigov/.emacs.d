@@ -37,7 +37,6 @@
 ;; курсором. Фактически документация по сигнатурам. настройки: 
 (require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
-
 (add-hook 'go-mode-hook 'yas-minor-mode)
 (add-hook 'go-mode-hook 'flycheck-mode)
 
