@@ -1,12 +1,11 @@
 ;;
 ;; Подключаемая конфигурация для работы с Lisp
 ;;
-
 (provide 'custom-lisp)
 
 ;; LISP бинарники по-умолчанию
 (require 'cl)
-;;(setq inferior-lisp-program "/usr/bin/sbcl")
+(setq inferior-lisp-program "/usr/bin/sbcl")
 (setq-default inferior-lisp-program "sbcl")
 
 ;; SLIME: The Superior Lisp Interaction Mode for Emacs

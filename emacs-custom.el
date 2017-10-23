@@ -1,6 +1,6 @@
 ;;
 ;; Персональные настройки Emacs
-;; 2017.10.21
+;; 2017.10.23
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
@@ -25,11 +25,6 @@
 ;;(defun system-is-msys2() (string-equal system-type "cygwin"))
 ;;(defun system-is-unix()  (string-equal system-type "berkeley-unix"))
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
-
-;; Вначале загружаем сторонние модули
 (require 'dired)
 (setq dired-recursive-deletes 'top) ; разрешить удалять непустые директории
 
@@ -43,20 +38,16 @@
 ;;(setq imenu-auto-rescan      t)
 ;;(setq imenu-use-popup-menu nil)
 
-;; Syntax highlighting
-(require 'font-lock)
-(global-font-lock-mode             t) ;; включено с версии Emacs-22. На всякий...
+(require 'font-lock) ; Syntax highlighting
 (setq font-lock-maximum-decoration t)
 
-;;Автодополнение - company, company-go и добавляем в конфиг: 
-(require 'company)
-(setq company-tooltip-limit 20)                      ; bigger popup window
-(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(require 'company) ; Autocomplete
+(setq company-tooltip-limit 20) ; bigger popup window
+(setq company-idle-delay .3)    ; decrease delay before popup shows
 (setq company-echo-delay 0)                          ; remove annoying blinking
 (setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
-;;Сниппеты
-(require 'yasnippet)
+(require 'yasnippet) ; Snippets
 (yas-reload-all)
 
 ;; Подсветка ошибок до компиляции очень ускоряет разработку. Для этого
@@ -149,9 +140,9 @@
 ;; Indent settings
 ;;(setq-default indent-tabs-mode nil) ;отключить возможность ставить отступы TAB'ом
 ;;(setq indent-line-function 'insert-tab)
-(setq-default tab-width          4) ; ширина табуляции - 4 пробельных символа
-(setq-default c-basic-offset     4)
-(setq-default standart-indent    4) ; стандартная ширина отступа - 4 пробельных символа
+(setq-default tab-width       4) ; ширина табуляции - 4 пробельных символа
+(setq-default c-basic-offset  4)
+(setq-default standart-indent 4) ; стандартная ширина отступа - 4 пробельных символа
 
 (setq lisp-body-indent 2) ; сдвигать Lisp-выражения на 2 символа
 (setq lisp-indent-function  'common-lisp-indent-function)
@@ -169,4 +160,5 @@
 ;;  (prefer-coding-system                   'utf-8))
 
 (add-hook 'go-mode-hook (load "custom-go.el"))
-;;(require 'custom-lisp)
+(add-hook 'lisp-mode-hook (load "custom-lisp.el"))
+
