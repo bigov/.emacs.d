@@ -22,6 +22,9 @@
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (leuven)))
  '(display-time-mode t)
+ '(package-selected-packages
+   (quote
+    (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile go-rename yasnippet company-go company go-eldoc go-mode)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 
@@ -30,8 +33,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal
-						:weight normal :height 90 :width normal)))))
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (display-graphic-p)
   (set-frame-size (selected-frame) 140 63)

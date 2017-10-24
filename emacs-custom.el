@@ -9,7 +9,7 @@
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 (setq package-selected-packages
- (quote (go-guru go-direx go-scratch gotest flycheck multi-compile
+ (quote (rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile
 		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
 (load-theme 'leuven t)
@@ -24,6 +24,12 @@
 ;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))
 ;;(defun system-is-msys2() (string-equal system-type "cygwin"))
 ;;(defun system-is-unix()  (string-equal system-type "berkeley-unix"))
+
+(require 'company) ; Autocomplete
+(setq company-tooltip-limit 20) ; bigger popup window
+(setq company-idle-delay .3)    ; decrease delay before popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
 (require 'dired)
 (setq dired-recursive-deletes 'top) ; разрешить удалять непустые директории
@@ -41,11 +47,8 @@
 (require 'font-lock) ; Syntax highlighting
 (setq font-lock-maximum-decoration t)
 
-(require 'company) ; Autocomplete
-(setq company-tooltip-limit 20) ; bigger popup window
-(setq company-idle-delay .3)    ; decrease delay before popup shows
-(setq company-echo-delay 0)                          ; remove annoying blinking
-(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+;;(require 'auto-complete) ; Autocomplete
+;;(ac-config-default)
 
 (require 'yasnippet) ; Snippets
 (yas-reload-all)
@@ -58,12 +61,52 @@
 
 ;;http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
 (require 'multi-compile)
+
+;; Автоподсветка цветовых параметров ??
+(require 'rainbow-mode)
+
+;;--------------------------- helm module ---------------------------------
+(require 'helm)
+(require 'helm-config)
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t
+      helm-echo-input-in-header-line t)
+
+(defun spacemacs//helm-hide-minibuffer-maybe ()
+  "Hide minibuffer in Helm session if we use the header line as input field."
+  (when (with-helm-buffer helm-echo-input-in-header-line)
+    (let ((ov (make-overlay (point-min) (point-max) nil nil t)))
+      (overlay-put ov 'window (selected-window))
+      (overlay-put ov 'face
+                   (let ((bg-color (face-background 'default nil)))
+                     `(:background ,bg-color :foreground ,bg-color)))
+      (setq-local cursor-type nil))))
+
+(add-hook 'helm-minibuffer-set-up-hook
+          'spacemacs//helm-hide-minibuffer-maybe)
+
+(setq helm-buffers-fuzzy-matching t helm-recentf-fuzzy-match t) ; fuzzy matching
+
+(setq helm-autoresize-max-height 40)
+(setq helm-autoresize-min-height 20)
+(helm-autoresize-mode 1)
+(helm-mode 1)
+;;-------------------------------------------------------------------------
+
+(add-hook 'after-init-hook 'global-company-mode)
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;; После сторонних модулей загружаем свои
 (require 'custom-keys)
 
-;; Элементы интерфейса настраиваем в последнюю очередь
+;; И настраиваем интерфейс
 (setq frame-title-format "EMACS: %b")
 
 (require 'linum)
@@ -130,8 +173,7 @@
 (electric-indent-mode         t) ; автоотступ, если глючит - можно отключить
 (electric-indent-just-newline t)
 
-;; Автоматический перенос длинных строк
-(setq word-wrap          t)
+(setq word-wrap          nil) ; перенос длинных строк ВЫКЛ
 (global-visual-line-mode t)
 
 (setq-default fill-column 78)
