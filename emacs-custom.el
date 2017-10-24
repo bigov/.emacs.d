@@ -59,7 +59,9 @@
 ;; что flycheck видит все необходимые утилиты: "M-x flycheck-verify-setup"
 (require 'flycheck)
 
-;;http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
+;; Пакет "multi-compile" - Состоит из одного файла, который скачивается с
+;;     https://github.com/ReanGD/emacs-multi-compile
+;; Описание - http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
 (require 'multi-compile)
 
 ;; Автоподсветка цветовых параметров ??
@@ -202,5 +204,5 @@
 ;;  (prefer-coding-system                   'utf-8))
 
 (add-hook 'go-mode-hook (load "custom-go.el"))
-(add-hook 'lisp-mode-hook (load "custom-lisp.el"))
+;;(add-hook 'lisp-mode-hook (load "custom-lisp.el"))
 
