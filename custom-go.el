@@ -7,8 +7,8 @@
 ;;;
 (provide 'custom-go)
 
-(add-to-list 'package-selected-packages
-   (quote(go-guru go-direx go-scratch gotest go-rename company-go go-eldoc go-mode)))
+(setq package-selected-packages (append package-selected-packages
+   '(go-guru go-direx go-scratch gotest go-rename company-go go-eldoc go-mode)))
 
 (require 'go-guru)
 (require 'go-direx)
