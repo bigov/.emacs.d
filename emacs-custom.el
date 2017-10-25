@@ -8,15 +8,16 @@
 ;; Установка пакетов для кастомной конфигурации:
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
-(setq package-selected-packages
- (quote (rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile
-		 go-rename yasnippet company-go company go-eldoc go-mode )))
+;;
+;;(setq package-selected-packages
+;; (quote (rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile
+;;		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
 (load-theme 'leuven t)
 (when (display-graphic-p) (set-face-background 'tool-bar "#f5f5f5"))
 (set-face-foreground 'mode-line-buffer-id "#ff3")
 (set-face-foreground 'mode-line "#efefef")
-(set-face-background 'mode-line "#44d")
+(set-face-background 'mode-line "#2f2fdf")
 (set-face-background 'mode-line-inactive "#afafaf")
 (set-face-foreground 'mode-line-inactive "#000000")
 
