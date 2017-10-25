@@ -1,5 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
+;;
 (add-to-list 'package-archives
 			 '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
@@ -24,7 +25,7 @@
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile go-rename yasnippet company-go company go-eldoc go-mode)))
+    (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck multi-compile yasnippet company)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 
@@ -39,5 +40,18 @@
   (set-frame-size (selected-frame) 140 63)
   (set-frame-position (selected-frame) 400 0))
 
-(add-to-list 'load-path "~/files/github.com/emacs-custom")
+(add-to-list 'load-path "~/.emacs.d/emacs-custom")
 (require 'emacs-custom)  ; Загрузка кастомной конфигурации
+
+;;=========================================================================
+;; Подключаемая конфигурация для работы с GO
+(add-hook 'go-mode-hook (load "custom-go.el"))
+
+;;=========================================================================
+;; Подключаемая конфигурация для работы с Lisp
+(require 'cl)
+(setq-default inferior-lisp-program "sbcl")  ; LISP бинарники по-умолчанию
+(add-to-list 'load-path "~/files/github.com/slime")
+(require 'slime-autoloads)
+(setq slime-contribs '(slime-fancy))
+

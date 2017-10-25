@@ -203,6 +203,3 @@
 ;;  (set-terminal-coding-system             'utf-8)
 ;;  (prefer-coding-system                   'utf-8))
 
-(add-hook 'go-mode-hook (load "custom-go.el"))
-;;(add-hook 'lisp-mode-hook (load "custom-lisp.el"))
-

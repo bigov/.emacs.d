@@ -7,12 +7,17 @@
 ;;;
 (provide 'custom-go)
 
+(add-to-list 'package-selected-packages
+   (quote(go-guru go-direx go-scratch gotest go-rename company-go go-eldoc go-mode)))
+
 (require 'go-guru)
 (require 'go-direx)
 (require 'go-scratch)
 (require 'gotest)
 (require 'go-rename)
 (require 'go-mode)
+(require 'company-go)
+(require 'go-eldoc)
 
 (setq multi-compile-alist '((go-mode . (
 ("go-build" "go build -v"
@@ -27,7 +32,6 @@
 ;;(add-hook 'before-save-hook 'gofmt-before-save) ; автоматически исправляет исходники
 (setq-default gofmt-command "goimports")
 
-(require 'company-go)
 (add-hook 'go-mode-hook (lambda ()
     (set (make-local-variable 'company-backends) '(company-go))
     (company-mode)))
@@ -35,7 +39,6 @@
 ;; Плагин go-eldoc - умеет показывать в строке состояния информацию о
 ;; переменной или аргументе\возвращаемом значении функции находящейся под
 ;; курсором. Фактически документация по сигнатурам. настройки: 
-(require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 (add-hook 'go-mode-hook 'yas-minor-mode)
 (add-hook 'go-mode-hook 'flycheck-mode)
