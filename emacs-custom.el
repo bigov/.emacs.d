@@ -13,6 +13,7 @@
 ;; (quote (rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile
 ;;		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-custom")
 (load-theme 'leuven t)
 (set-face-foreground 'mode-line-buffer-id "#ff3")
 (set-face-foreground 'mode-line "#efefef")
