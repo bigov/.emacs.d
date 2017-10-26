@@ -14,7 +14,6 @@
 ;;		 go-rename yasnippet company-go company go-eldoc go-mode )))
 
 (load-theme 'leuven t)
-(when (display-graphic-p) (set-face-background 'tool-bar "#f5f5f5"))
 (set-face-foreground 'mode-line-buffer-id "#ff3")
 (set-face-foreground 'mode-line "#efefef")
 (set-face-background 'mode-line "color-25")
@@ -29,6 +28,10 @@
 (set-face-foreground 'tty-menu-enabled-face "brightwhite")
 (set-face-bold       'tty-menu-enabled-face nil)
 (set-face-background 'tty-menu-selected-face "brightblue")
+
+(when (display-graphic-p)
+  (set-face-background 'tool-bar "#f5f5f5")
+  (set-face-background 'mode-line "DodgerBlue3"))
 
 ;;(defun system-is-Linux() (string-equal system-type "gnu/linux"))
 ;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))
