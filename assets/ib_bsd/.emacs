@@ -19,13 +19,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode t)
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (leuven)))
  '(display-time-mode t)
  '(package-selected-packages
    (quote
-    (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent
+	(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent
 	 clean-aindent-mode undo-tree volatile-highlights helm-gtags helm
 	 zygospore projectile use-package rainbow-mode flycheck multi-compile
 	 yasnippet company)))
@@ -37,7 +37,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (add-to-list 'load-path "~/.emacs.d/emacs-custom")
@@ -54,4 +54,3 @@
 ;;(add-to-list 'load-path "~/files/github.com/slime")
 ;;(require 'slime-autoloads)
 ;;(setq slime-contribs '(slime-fancy))
-
