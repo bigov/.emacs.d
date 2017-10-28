@@ -1,13 +1,13 @@
-(deftheme leuven
+(deftheme subleuven
   "Created 2017-10-26.")
 
 (custom-theme-set-variables
- 'leuven
+ 'subleuven
  '(ansi-color-faces-vector [default default default italic underline success warning error])
  '(ansi-color-names-vector ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"]))
 
 (custom-theme-set-faces
- 'leuven
+ 'subleuven
  '(bold ((((class color) (min-colors 89)) (:weight bold :foreground "black"))))
  '(bold-italic ((((class color) (min-colors 89)) (:weight bold :slant italic :foreground "black"))))
  '(italic ((((class color) (min-colors 89)) (:slant italic :foreground "#1A1A1A"))))
@@ -21,9 +21,9 @@
  '(isearch-fail ((((class color) (min-colors 89)) (:weight bold :foreground "black" :background "#FF9999"))))
  '(lazy-highlight ((((class color) (min-colors 89)) (:underline "#FF9632" :background "#FFFF00"))))
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#FFFF57"))))
- '(mode-line ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#1A2F54") :foreground "#85CEEB" :background "#335EA8"))))
- '(mode-line-inactive ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#4E4E4C") :foreground "#F0F0EF" :background "#9B9C97"))))
- '(mode-line-buffer-id ((((class color) (min-colors 89)) (:weight bold :foreground "white"))))
+ '(mode-line ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#0066BB") :foreground "#EFEFEF" :background "color-25"))))
+ '(mode-line-inactive ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#9F9F9F") :foreground "black" :background "#AFAFAF"))))
+ '(mode-line-buffer-id ((((class color) (min-colors 89)) (:weight bold :foreground "yellow"))))
  '(mode-line-emphasis ((((class color) (min-colors 89)) (:weight bold :foreground "white"))))
  '(mode-line-highlight ((((class color) (min-colors 89)) (:foreground "yellow"))))
  '(minibuffer-prompt ((((class color) (min-colors 89)) (:weight bold :foreground "black" :background "gold"))))
@@ -123,4 +123,4 @@
  '(widget-single-line-field ((((class color) (min-colors 89)) (:background "gray85"))))
  '(default ((((class color) (min-colors 89)) (:foreground "#333333" :background "#FFFFFF")))))
 
-(provide-theme 'leuven)
+(provide-theme 'subleuven)
