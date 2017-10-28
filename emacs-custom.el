@@ -33,10 +33,6 @@
 (set-face-bold       'tty-menu-enabled-face nil)
 (set-face-background 'tty-menu-selected-face "#0063BC")
 
-(when (display-graphic-p)
-  (set-face-background 'tool-bar "#f5f5f5")
-  (set-face-background 'mode-line "DodgerBlue3"))
-
 ;;(defun system-is-Linux() (string-equal system-type "gnu/linux"))
 ;;(defun system-is-MsWin() (string-equal system-type "windows-nt"))
 ;;(defun system-is-msys2() (string-equal system-type "cygwin"))

@@ -45,6 +45,8 @@
 ;; Выход из Emacs
 (global-unset-key (kbd "<f10>"))
 (global-set-key (kbd "<f10>") 'save-buffers-kill-terminal)
+(global-set-key (kbd "M-<f4>") 'save-buffers-kill-terminal)
+
 ;;--------------------= helm =---------------------------------------------
 ;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
 ;; Changed to "C-c h". Note: We must set "C-c h" globally, because we

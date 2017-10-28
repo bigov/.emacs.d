@@ -112,7 +112,7 @@
  '(shadow ((((class color) (min-colors 89)) (:foreground "#7F7F7F"))))
  '(show-paren-match ((((class color) (min-colors 89)) (:background "#99CCFF"))))
  '(show-paren-mismatch ((((class color) (min-colors 89)) (:underline "red" :foreground nil :background "#FFDCDC"))))
- '(tool-bar ((((class color) (min-colors 89)) (:box (:line-width 1 :style released-button) :foreground "black" :background "gray75"))))
+ '(tool-bar ((((class color) (min-colors 89)) (:box (:line-width 1 :style released-button) :foreground "black" :background "#F5F5F5"))))
  '(tooltip ((((class color) (min-colors 89)) (:foreground "black" :background "light yellow"))))
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#F6EBFE"))))
  '(widget-button ((((class color) (min-colors 89)) (:weight normal :underline t :foreground "#006DAF"))))
