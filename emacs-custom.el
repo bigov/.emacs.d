@@ -9,9 +9,11 @@
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 ;;
-;;(setq package-selected-packages
-;; (quote (rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile
-;;		 go-rename yasnippet company-go company go-eldoc go-mode )))
+(setq package-selected-packages (quote
+     (slime-company slime helm-projectile helm-swoop iedit anzu ws-butler
+      dtrt-indent clean-aindent-mode undo-tree volatile-highlights
+      helm-gtags helm zygospore projectile use-package rainbow-mode
+      flycheck multi-compile yasnippet company )))
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-custom")
 (load-theme 'subleuven t)
