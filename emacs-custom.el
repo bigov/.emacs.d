@@ -1,6 +1,12 @@
 ;;
 ;; Персональные настройки Emacs
-;; 2017.10.23
+;; 2017.10.28
+;;
+;; ;; Для загрузки конфигурации необходимо через переменную "emacs-custom-dir"
+;; ;; указать полный путь к папке с настройками, например:
+;; (setq emacs-custom-dir "c:/Users/ib/AppData/Roaming/.emacs.d/emacs-custom")
+;; (add-to-list 'load-path emacs-custom-dir)
+;; (require 'emacs-custom)
 ;;
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
@@ -15,7 +21,7 @@
       helm-gtags helm zygospore projectile use-package rainbow-mode
       flycheck multi-compile yasnippet company )))
 
-(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-custom")
+(add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
 
 (set-face-background 'menu "brightwhite")

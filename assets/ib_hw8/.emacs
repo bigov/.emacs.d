@@ -1,17 +1,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
+;;
 (add-to-list 'package-archives
-			 '("gnu" . "http://elpa.gnu.org/packages/") t)
-;;(add-to-list 'package-archives
-;;			 '("marmalade" . "http://marmalade-repo.org/packages/") t)
-;;(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
-;;                    (not (gnutls-available-p))))
-;;       (url (concat (if no-ssl "http" "https") "://melpa.org/packages/")))
-;;  (add-to-list 'package-archives (cons "melpa" url) t))
-;;--
+	     '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
-             '("MELPA Stable" . "http://stable.melpa.org/packages/") t)
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
 ;; just comment it out by adding a semicolon to the start of the line.
@@ -41,11 +36,13 @@
  '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when (display-graphic-p)
-    (set-frame-size (selected-frame) 140 65)
-    (set-frame-position (selected-frame) 500 0))
+    (set-frame-size (selected-frame) 140 67)
+    (set-frame-position (selected-frame) 480 0))
 
-(add-to-list 'load-path "f:/github.com/emacs-custom")
-(require 'emacs-custom)  ; Загрузка кастомной конфигурации
+;; Загрузка кастомной конфигурации
+(setq emacs-custom-dir "c:/Users/ib/AppData/Roaming/.emacs.d/emacs-custom")
+(add-to-list 'load-path emacs-custom-dir)
+(require 'emacs-custom)
 
 ;;----------------------------------- LISP -----------------------------------
 ;;(add-to-list 'load-path "f:/github.com/slime")
@@ -58,7 +55,6 @@
 ;; Use M-x slime to fire up and connect to an inferior Lisp.
 ;; SLIME will now automatically be available in your Lisp source buffers.
 ;;(add-to-list 'load-path "~/files/github.com/slime")
-
 ;;(require 'slime-autoloads)
 ;;(setq slime-contribs '(slime-fancy))
-
+(require 'custom-go)
