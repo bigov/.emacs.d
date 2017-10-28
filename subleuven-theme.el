@@ -21,7 +21,7 @@
  '(isearch-fail ((((class color) (min-colors 89)) (:weight bold :foreground "black" :background "#FF9999"))))
  '(lazy-highlight ((((class color) (min-colors 89)) (:underline "#FF9632" :background "#FFFF00"))))
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#FFFF57"))))
- '(mode-line ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#0066BB") :foreground "#EFEFEF" :background "1874CD"))))
+ '(mode-line ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#0066BB") :foreground "#EFEFEF" :background "#1874CD"))))
  '(mode-line-inactive ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#9F9F9F") :foreground "black" :background "#AFAFAF"))))
  '(mode-line-buffer-id ((((class color) (min-colors 89)) (:weight bold :foreground "yellow"))))
  '(mode-line-emphasis ((((class color) (min-colors 89)) (:weight bold :foreground "white"))))

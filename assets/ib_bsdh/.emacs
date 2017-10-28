@@ -28,5 +28,6 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Загрузка кастомной конфигурации
-(add-to-list 'load-path "/home/ib/.emacs.d/emacs-custom")
+(setq emacs-custom-dir "/home/ib/.emacs.d/emacs-custom")
+(add-to-list 'load-path emacs-custom-dir)
 (require 'emacs-custom)

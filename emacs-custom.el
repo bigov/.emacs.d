@@ -31,7 +31,7 @@
 (set-face-background 'tty-menu-enabled-face "#1874CD")
 (set-face-foreground 'tty-menu-enabled-face "brightwhite")
 (set-face-bold       'tty-menu-enabled-face nil)
-(set-face-background 'tty-menu-selected-face "brightblue")
+(set-face-background 'tty-menu-selected-face "#0063BC")
 
 (when (display-graphic-p)
   (set-face-background 'tool-bar "#f5f5f5")
