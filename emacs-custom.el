@@ -23,12 +23,12 @@
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
-
+;;#1874CD = color-25
 (set-face-background 'menu "brightwhite")
-(set-face-foreground 'menu "color-25")
-(set-face-background 'tty-menu-disabled-face "color-25")
+(set-face-foreground 'menu "#1874CD")
+(set-face-background 'tty-menu-disabled-face "#1874CD")
 (set-face-foreground 'tty-menu-disabled-face "darkwhite")
-(set-face-background 'tty-menu-enabled-face "color-25")
+(set-face-background 'tty-menu-enabled-face "#1874CD")
 (set-face-foreground 'tty-menu-enabled-face "brightwhite")
 (set-face-bold       'tty-menu-enabled-face nil)
 (set-face-background 'tty-menu-selected-face "brightblue")
