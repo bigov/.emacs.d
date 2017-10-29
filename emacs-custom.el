@@ -15,11 +15,7 @@
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 ;;
-(setq package-selected-packages (quote
-     (slime-company slime helm-projectile helm-swoop iedit anzu ws-butler
-      dtrt-indent clean-aindent-mode undo-tree volatile-highlights
-      helm-gtags helm zygospore projectile use-package rainbow-mode
-      flycheck multi-compile yasnippet company )))
+(setq package-selected-packages (quote (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck multi-compile yasnippet company)))
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
@@ -131,9 +127,6 @@
 
 (setq-default indicate-empty-lines           t)
 (setq-default indicate-buffer-boundaries 'left)
-
-;; не добавлять новую строку в конец при смещении курсора  стрелками
-(setq next-line-add-newlines nil)
 
 (defun format-current-buffer()
   "Пользовательская функция, которая удаляет лишние пробелы,

@@ -18,13 +18,15 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(blink-cursor-mode t)
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (leuven)))
  '(display-time-mode t)
+ '(frame-resize-pixelwise t)
  '(package-selected-packages
    (quote
-	(slime-company slime helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile go-rename yasnippet company-go company go-eldoc go-mode)))
+	(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode go-guru go-direx go-scratch gotest flycheck multi-compile go-rename yasnippet company-go company go-eldoc go-mode go-guru go-direx go-scratch gotest go-rename company-go go-eldoc go-mode)))
  '(show-paren-mode t)
  '(size-indication-mode t))
 
@@ -35,26 +37,22 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(when (display-graphic-p)
-    (set-frame-size (selected-frame) 140 67)
-    (set-frame-position (selected-frame) 480 0))
+;;(when (display-graphic-p)
+
+(add-to-list 'default-frame-alist '(width . 140))
+(add-to-list 'default-frame-alist '(height . 67))
+(add-to-list 'default-frame-alist '(top . 0))
+(add-to-list 'default-frame-alist '(left . 480))
+
+(set-frame-size (selected-frame) 140 67)
+(set-frame-position (selected-frame) 480 0)
+(setq initial-frame-alist
+    '((top . 0) (left . 480) (width . 140) (height . 67)))
 
 ;; Загрузка кастомной конфигурации
 (setq emacs-custom-dir "c:/Users/ib/AppData/Roaming/.emacs.d/emacs-custom")
 (add-to-list 'load-path emacs-custom-dir)
 (require 'emacs-custom)
 
-;;----------------------------------- LISP -----------------------------------
-;;(add-to-list 'load-path "f:/github.com/slime")
-;;(require 'cl)
-;; Под MS-Windows тут: http://www.sbcl.org/platform-table.html
-;;(setq inferior-lisp-program "/usr/bin/sbcl")
-;;(setq-default inferior-lisp-program "sbcl")
-
-;; SLIME: The Superior Lisp Interaction Mode for Emacs
-;; Use M-x slime to fire up and connect to an inferior Lisp.
-;; SLIME will now automatically be available in your Lisp source buffers.
-;;(add-to-list 'load-path "~/files/github.com/slime")
-;;(require 'slime-autoloads)
-;;(setq slime-contribs '(slime-fancy))
+;; Модуль настройка окружения для работы с Go
 (require 'custom-go)

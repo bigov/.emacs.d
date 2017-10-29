@@ -44,3 +44,11 @@ $ sbcl --load quicklisp.lisp
 
   $ git clone -b master --single-branch https://github.com/slime/slime.git
 
+===========================================================================
+;; "~/.emacs" Подключаемая конфигурация для работы с Lisp
+===========================================================================
+(require 'cl)
+(setq-default inferior-lisp-program "sbcl")  ; LISP бинарники по-умолчанию
+(add-to-list 'load-path "~/files/github.com/slime")
+(require 'slime-autoloads)
+(setq slime-contribs '(slime-fancy))
