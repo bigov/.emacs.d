@@ -15,7 +15,7 @@
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 ;;
-(setq package-selected-packages (quote (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck multi-compile yasnippet company)))
+(setq package-selected-packages (quote (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company)))
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
@@ -67,11 +67,6 @@
 ;; переключаемся в буфер в котором включен режим go-mode и проверяем,
 ;; что flycheck видит все необходимые утилиты: "M-x flycheck-verify-setup"
 (require 'flycheck)
-
-;; Пакет "multi-compile" - Состоит из одного файла, который скачивается с
-;;     https://github.com/ReanGD/emacs-multi-compile
-;; Описание - http://reangdblog.blogspot.com/2016/02/emacs-multi-compile.html
-(require 'multi-compile)
 
 ;; Автоподсветка цветовых параметров ??
 (require 'rainbow-mode)
