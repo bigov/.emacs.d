@@ -11,11 +11,27 @@
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (provide 'emacs-custom)
 
+(require 'package)
+;;
+(add-to-list 'package-archives
+         '("gnu" . "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
+         '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 ;; Установка пакетов для кастомной конфигурации:
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 ;;
-(setq package-selected-packages (quote (helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company)))
+(setq package-selected-packages (append package-selected-packages
+   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company)))
+
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
