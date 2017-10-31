@@ -1,6 +1,5 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'package)
-;;
 (add-to-list 'package-archives
 			 '("gnu" . "http://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
@@ -21,7 +20,6 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (leuven)))
  '(display-time-mode t)
  '(package-selected-packages
    (quote
@@ -41,18 +39,10 @@
   (set-frame-size (selected-frame) 140 63)
   (set-frame-position (selected-frame) 400 0))
 
-(add-to-list 'load-path "~/.emacs.d/emacs-custom")
-(require 'emacs-custom)  ; Загрузка кастомной конфигурации
+(setq emacs-custom-dir "/home/ib/.emacs.d/emacs-custom")
+(add-to-list 'load-path emacs-custom-dir)
+(require 'emacs-custom)
 
 ;;=========================================================================
 ;; Подключаемая конфигурация для работы с GO
 (add-hook 'go-mode-hook (load "custom-go.el"))
-
-;;=========================================================================
-;; Подключаемая конфигурация для работы с Lisp
-(require 'cl)
-(setq-default inferior-lisp-program "sbcl")  ; LISP бинарники по-умолчанию
-(add-to-list 'load-path "~/files/github.com/slime")
-(require 'slime-autoloads)
-(setq slime-contribs '(slime-fancy))
-

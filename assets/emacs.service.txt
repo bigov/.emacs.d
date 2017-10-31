@@ -1,0 +1,34 @@
+#
+# Файл размещается как
+# ~/.config/systemd/user/emacs.service
+#
+# От имени пользователя настраивается запуск как сервиса:
+#   $ systemctl --user enable emacs.service
+#   $ systemctl --user start emacs.service
+#
+# после этого можно использовать emacsclient 
+#
+# Есть проблемы (в Archlinux):
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# - в терминальном режиме при запуске emacsclient из mc при попытке ввода
+#   русских букв портится текст - они воспринимаются как команды
+# - бинарный файл emacsclient скомпилирован с ASLR (без -no-pie) и не стартует
+#   в Xfce4
+#
+[Unit]
+Description=Emacs text editor as user system service
+
+[Service]
+Type=forking
+# ---
+## Для emacsclient в терминале:
+ExecStart=/usr/bin/emacs --daemon
+## Если использовать графический emacsclient, то можно добавить опции запуска:
+#ExecStart=/usr/bin/emacs --daemon --with-x-toolkit=lucid -fn fontset-standard -g 140x63+400
+# ---
+ExecStop=/usr/bin/emacsclient --eval '(kill-emacs)'
+Environment=SSH_AUTH_SOCK=%t/keyring/ssh
+Restart=always
+
+[Install]
+WantedBy=default.target
