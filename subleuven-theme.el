@@ -23,7 +23,7 @@
  '(trailing-whitespace ((((class color) (min-colors 89)) (:background "#FFFF57"))))
  '(mode-line ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#0066BB") :foreground "#EFEFEF" :background "#1874CD"))))
  '(mode-line-inactive ((((class color) (min-colors 89)) (:box (:line-width 1 :color "#9F9F9F") :foreground "black" :background "#AFAFAF"))))
- '(mode-line-buffer-id ((((class color) (min-colors 89)) (:weight bold :foreground "brightyellow"))))
+ '(mode-line-buffer-id ((((class color) (min-colors 89)) (:weight bold :foreground "#FFFF66"))))
  '(mode-line-emphasis ((((class color) (min-colors 89)) (:weight bold :foreground "white"))))
  '(mode-line-highlight ((((class color) (min-colors 89)) (:foreground "yellow"))))
  '(minibuffer-prompt ((((class color) (min-colors 89)) (:weight bold :foreground "black" :background "gold"))))
