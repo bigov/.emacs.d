@@ -29,6 +29,7 @@
 ;;	M-x package-refresh-contents
 ;;  M-x package-install-selected-packages
 ;;
+(if (boundp 'package-selected-packages) nil (setq package-selected-packages ""))
 (setq package-selected-packages (append package-selected-packages
    '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company)))
 
