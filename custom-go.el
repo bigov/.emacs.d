@@ -7,6 +7,9 @@
 ;;;
 (provide 'custom-go)
 
+;; Путь для поиска бинарников GO (требуется при работе в .X-GUI Emacs)
+(setq exec-path (append exec-path '("~/go/bin")))
+
 (setq package-selected-packages (append package-selected-packages
    '(go-guru go-direx go-scratch gotest go-rename company-go go-eldoc go-mode)))
 
