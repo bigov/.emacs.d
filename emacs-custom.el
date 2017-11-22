@@ -31,11 +31,10 @@
 ;;
 (if (boundp 'package-selected-packages) nil (setq package-selected-packages ""))
 (setq package-selected-packages (append package-selected-packages
-   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company php-mode mmm-mode web-mode)))
+   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company php-mode mmm-mode web-mode window-purpose function-args)))
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
-;;#1874CD = color-25
 (set-face-background 'menu "brightwhite")
 (set-face-foreground 'menu "#1874CD")
 (set-face-background 'tty-menu-disabled-face "#1874CD")
@@ -211,6 +210,32 @@
 
 (setq lisp-body-indent 2) ; сдвигать Lisp-выражения на 2 символа
 (setq lisp-indent-function  'common-lisp-indent-function)
+
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+;; раскладка окон
+(require 'window-purpose)
+(purpose-mode)
+(add-to-list 'purpose-layout-dirs (concat emacs-custom-dir "/layouts"))
+;; Вызов раскладки окон для работы с С++
+(defun load-purpose-mode ()
+  (interactive)
+  (purpose-load-window-layout-file "~/.emacs.d/emacs-custom/layouts/cpp-ide.window-layout")
+  (purpose-x-code1-setup))
+(global-set-key (kbd "M-L") 'load-purpose-mode) ; вызов раскладки С++
+
+(setq pop-up-frames t) ; allows emacs to popup new frames
+;; give help buffers the 'popup-frame purpose
+(add-to-list 'purpose-user-mode-purposes
+             '(help-mode . popup-frame))
+(purpose-compile-user-configuration)
+;; new rules for buffers with the 'popup-frame purpose
+(add-to-list 'purpose-special-action-sequences
+             '(popup-frame
+               purpose-display-reuse-window-buffer
+               purpose-display-reuse-window-purpose
+               purpose-display-pop-up-frame))
+
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;; Coding-system settings
 (set-language-environment 'UTF-8)
