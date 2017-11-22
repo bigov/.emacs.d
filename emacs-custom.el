@@ -31,7 +31,7 @@
 ;;
 (if (boundp 'package-selected-packages) nil (setq package-selected-packages ""))
 (setq package-selected-packages (append package-selected-packages
-   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company)))
+   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company php-mode)))
 
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
@@ -122,8 +122,11 @@
 (helm-autoresize-mode 1)
 (helm-mode 1)
 ;;-------------------------------------------------------------------------
-
 (add-hook 'after-init-hook 'global-company-mode)
+;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(autoload 'php-mode "php-mode" "Major mode for editing PHP code." t)
+(add-to-list 'auto-mode-alist '("\\.php$" . php-mode))
+(add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 ;;~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;; После сторонних модулей загружаем свои
