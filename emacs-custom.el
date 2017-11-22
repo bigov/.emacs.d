@@ -31,8 +31,7 @@
 ;;
 (if (boundp 'package-selected-packages) nil (setq package-selected-packages ""))
 (setq package-selected-packages (append package-selected-packages
-   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company php-mode)))
-
+   '(helm-projectile helm-swoop iedit anzu ws-butler dtrt-indent clean-aindent-mode undo-tree volatile-highlights helm-gtags helm zygospore projectile use-package rainbow-mode flycheck yasnippet company php-mode mmm-mode)))
 
 (add-to-list 'custom-theme-load-path emacs-custom-dir)
 (load-theme 'subleuven t)
